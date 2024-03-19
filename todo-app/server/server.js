@@ -9,7 +9,7 @@ const PORT = 5000;
 // Initialize Database
 const datastore = new Datastore({
     projectId: 'final-project-417018',
-    keyFilename: '' // Key to service account that gives permission to access the datastore
+    keyFilename: './final-project-417018-8d2f3de063b8.json' // Key to service account that gives permission to access the datastore
 });
 
 app.use(bodyParser.json()); // Allows us to read json data
