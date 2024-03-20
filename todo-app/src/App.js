@@ -2,17 +2,21 @@ import './App.css'
 import React, { useState, useEffect  } from 'react';
 
 function App() {
+    // Holds the data to be passed to the database
     const [postData, setPostData] = useState({
         text: ''
     });
-
+    // holds all the todos that will be set to the screen
     const [todos, setTodos] = useState([]);
 
+    // Use Effect hook that will fetch all the todos everytime todos changes
     useEffect(() => {
         fetchTodos();
-    }, []);
+    }, [todos]);
+
 
     const fetchTodos = async () => {
+    // Gets a response from the post and calls setTodos which will add a todo
       try {
           const response = await fetch('http://localhost:5000/api/posts');
           const data = await response.json();
@@ -22,16 +26,16 @@ function App() {
       }
   };
 
-    const handleChange = (e) => {
+    const handleChange = (eventObject) => {
         setPostData({
             ...postData,
-            text: e.target.value
+            text: eventObject.target.value
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
+    const handleSubmit = async (eventObject) => {
+        eventObject.preventDefault(); // avoid default actions of the submit button
+        try { //Sends a post request to the server containing the post data, stores the response from the server
             const response = await fetch('http://localhost:5000/api/posts', {
                 method: 'POST',
                 headers: {
@@ -48,10 +52,10 @@ function App() {
     };
 
     const handleDelete = async (id) => {
-      try {
-          const response = await fetch(`http://localhost:5000/api/posts/${id}`, {
+      try { // sends a request to the server side that the client wants to delete something
+          const response = await fetch(`http://localhost:5000/api/delete/${id}`, {
               method: 'DELETE'
-          });
+          }); // holds the server response
           // Handle response if needed
           console.log(response);
           // Fetch todos again to update the list
