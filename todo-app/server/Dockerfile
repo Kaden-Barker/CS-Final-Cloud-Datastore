@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18-slim
 
 # Set the working directory
 WORKDIR /todo-app/server
@@ -12,7 +12,7 @@ RUN npm install
 # Copy the remaining app files
 COPY . .
 
-# Build the React app
-RUN npm run build
+# Expose the port the app runs on
+EXPOSE 5000
 
 CMD ["node", "server.js"]
