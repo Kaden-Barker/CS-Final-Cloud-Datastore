@@ -4,7 +4,7 @@ FROM node:18-alpine
 WORKDIR /todo-app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY ./frontend/package*.json ./
 
 # Install dependencies
 RUN npm install
