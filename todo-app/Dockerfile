@@ -21,7 +21,7 @@ COPY . .
 RUN cd frontend && npm run build
 
 # Expose port
-EXPOSE 5000
+EXPOSE 8080
 
 # Command to run the server
 CMD ["npm", "start"]
