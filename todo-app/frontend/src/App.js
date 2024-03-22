@@ -18,7 +18,7 @@ function App() {
     const fetchTodos = async () => {
     // Gets a response from the post and calls setTodos which will add a todo
       try {
-          const response = await fetch('http://localhost:5000/api/posts');
+          const response = await fetch('https://final-project-deploy-6vtitzdc2a-uw.a.run.app/api/posts');
           const data = await response.json();
           setTodos(data);
       } catch (error) {
@@ -36,7 +36,7 @@ function App() {
     const handleSubmit = async (eventObject) => {
         eventObject.preventDefault(); // avoid default actions of the submit button
         try { //Sends a post request to the server containing the post data, stores the response from the server
-            const response = await fetch('http://localhost:5000/api/posts', {
+            const response = await fetch('https://final-project-deploy-6vtitzdc2a-uw.a.run.app/api/posts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ function App() {
 
     const handleDelete = async (id) => {
       try { // sends a request to the server side that the client wants to delete something
-          const response = await fetch(`http://localhost:5000/api/delete/${id}`, {
+          const response = await fetch(`https://final-project-deploy-6vtitzdc2a-uw.a.run.app/api/delete/${id}`, {
               method: 'DELETE'
           }); // holds the server response
           // Handle response if needed
