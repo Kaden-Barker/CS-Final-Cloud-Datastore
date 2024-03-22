@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors'; // Import cors - This allows the server to run on port 5000 and the frontend to run on port 3000
 
 const app = express();
-const PORT = 5000;
+const PORT = 8080;
 
 // Enable CORS
 app.use(cors());
