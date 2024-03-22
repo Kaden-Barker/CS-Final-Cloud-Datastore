@@ -1,10 +1,10 @@
 FROM node:18-alpine
 
 # Set the working directory
-WORKDIR /todo-app
+WORKDIR /todo-app/frontend
 
 # Copy package.json and package-lock.json
-COPY ./frontend/package*.json ./
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
