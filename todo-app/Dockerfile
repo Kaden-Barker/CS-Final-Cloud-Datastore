@@ -24,4 +24,4 @@ RUN cd frontend && npm run build
 EXPOSE 8080
 
 # Command to run the server
-CMD ["node", "server/server.js"]
+CMD ["npm", "start"]
